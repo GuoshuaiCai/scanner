@@ -127,13 +127,6 @@ analysis time.
 source("support_function.R")
 ```
 
-    ## 
-    ## Attaching package: 'future'
-
-    ## The following object is masked from 'package:rmarkdown':
-    ## 
-    ##     run
-
 ``` r
 seurat.object.subset<-subset_data(seurat.object,ncell=100,method="sampling")
 ```
