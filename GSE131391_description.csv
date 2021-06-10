@@ -1,0 +1,25 @@
+,Description
+Title,Characterizing smoking-induced transcriptional heterogeneity in the human bronchial epithelium at single-cell resolution
+Authors,"Duclos G, Campbell J, Beane J"
+Publication,Sci Adv (2019)
+Summary,"The human bronchial epithelium is composed of multiple, distinct cell types that cooperate to defend against environmental insults. While studies have shown that smoking alters bronchial epithelial function and morphology, its precise effects on specific cell types and overall tissue composition are unclear. We used single-cell RNA sequencing to profile bronchial epithelial cells from six never- and six current smokers. Unsupervised analyses led to the characterization of a set of toxin metabolism genes that localized to smoker ciliated cells, tissue remodeling associated with a loss of club cells and extensive goblet cell hyperplasia, and a novel peri-goblet epithelial subpopulation in smokers that expressed a marker of bronchial premalignant lesions. Our data demonstrates that smoke exposure drives a complex landscape of cellular alterations that may prime the human bronchial epithelium for disease"
+Sample Name,NA
+Disease Status,NA
+Tissue,human bronchial epithelium
+Enrichment,NA
+Number of Cells,943
+Platform,CEL-Seq
+Sequencer,Illumina HiSeq 2500
+Data Source,GEO:GSE131391
+Data POI,Adam C Gower[agower@bu.edu]
+Data Preprocess,"Illumina’s CASAVA software (version 1.8.2) was used to process base calls and de-multiplex the sequencing output to 12 pairs of plate-level FASTQ files (1 per 96-well plate), where the first read contains the UMI (bases 1-5) and the cell barcode (bases 6-11), the second read contains the target RNA molecule, and the last base in each read was trimmed off.
+A python-based pipeline (https://github.com/yanailab/CEL-Seq-pipeline) was then utilized to: 1) de-multiplex each plate-level FASTQ file to 96 cell-level FASTQ files, trim 51 nucleotide reads to 35 nucleotides, and append UMI information from read 1 (R1) to the header of read 2 (R2); 2) perform genomic alignment of R2 with Bowtie2 (v2.2.2) using a concatenated hg19/ERCC reference assembly; and 3) convert aligned reads to gene-level counts using a modified version of the HTSeq (v0.5.4p1) python library that identifies reads aligning to the same location with identical UMIs and reduces them to a single count. One UMI-corrected count was then referred to as a “transcript”. The pipeline was configured with the following settings: alignment quality (min_bc_quality) = 10, barcode length (bc_length) = 6, UMI length (umi_length) = 5, cut_length = 35.
+Genome_build: hg19"
+Analyst,Cai Lab
+Species,Homo Sapiens
+Reference Genome,hg19
+Gene Annotation,
+ENSEMBL,NA
+Project ID,NA
+Run ID,NA
+Sample ID,NA
