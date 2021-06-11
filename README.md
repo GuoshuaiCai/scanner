@@ -107,11 +107,11 @@ DE.all <- FindAllMarkers(object = seurat.object,
 
 ``` r
 seurat.object@misc$DE$top10<-DE.all %>% group_by(cluster) %>% 
-                    top_n(10, avg_logFC) %>% as.data.frame()
+                    top_n(10, avg_log2FC) %>% as.data.frame()
 seurat.object@misc$DE$top30<-DE.all %>% group_by(cluster) %>% 
-                    top_n(30, avg_logFC) %>% as.data.frame()
+                    top_n(30, avg_log2FC) %>% as.data.frame()
 seurat.object@misc$DE$top100<-DE.all %>% group_by(cluster) %>% 
-                    top_n(100, avg_logFC) %>% as.data.frame()
+                    top_n(100, avg_log2FC) %>% as.data.frame()
 ```
 
 **Optional but recommended** Subset data with a smaller number (500 by
@@ -126,6 +126,13 @@ analysis time.
 ``` r
 source("support_function.R")
 ```
+
+    ## 
+    ## Attaching package: 'future'
+
+    ## The following object is masked from 'package:rmarkdown':
+    ## 
+    ##     run
 
 ``` r
 seurat.object.subset<-subset_data(seurat.object,ncell=100,method="sampling")
@@ -142,7 +149,7 @@ Last, save the data into a single R object (RDS format). It is ready to
 load into SCANNER for visualization and analysis!
 
 ``` r
-saveRDS(seurat.object.subset, "GSE131391_ellipse.RDS")
+saveRDS(seurat.object.subset, "GSE131391_sampling.RDS")
 ```
 
 **Extra** We provide the functions for gene set activity analysis used
